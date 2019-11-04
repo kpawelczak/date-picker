@@ -1,1 +1,1 @@
-https://kpawelczak.github.io/date-picker/
+Live demo https://kpawelczak.github.io/date-picker/
