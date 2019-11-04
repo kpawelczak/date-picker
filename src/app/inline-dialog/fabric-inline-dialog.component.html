@@ -1,0 +1,12 @@
+<div [style.top.px]="dialogTopAttribute"
+	 [style.left.px]="dialogLeftAttribute"
+	 class="gui-inline-dialog-wrapper">
+
+	<div (document:click)="clickOutside($event)"
+		 class="gui-inline-dialog-content">
+
+		<ng-template #container></ng-template>
+
+	</div>
+
+</div>

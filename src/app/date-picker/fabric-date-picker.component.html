@@ -1,0 +1,7 @@
+<div #datePicker class="gui-date-picker">
+	<form [formGroup]="datePickerForm">
+		<input formControlName='date'
+			   [value]="pickedDate| date: 'd/M/yyyy'">
+	</form>
+	<div class="gui-date-picker-icon" (click)="openDatePicker()"></div>
+</div>

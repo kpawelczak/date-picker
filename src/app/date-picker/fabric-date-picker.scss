@@ -1,0 +1,25 @@
+@import '../style/variables.scss';
+
+.gui-date-picker {
+	display: inline-flex;
+	position: relative;
+	align-items: center;
+
+	input {
+		border: {
+			style: solid;
+			width: 0 0 1px 0;
+			color: $gray;
+		};
+		font-family: Roboto, "Helvetica Neue", sans-serif;
+		font-size: 14px;
+	}
+
+	.gui-date-picker-icon {
+		background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA+SURBVDhPY0AD/6E0PoCihhFKE6MRG2BkgjLIBhQbAAPkeAGsZ+C9gG4AyFkwTBQYjYXBYADFmQlKkwsYGAB1FwsOS8cZnAAAAABJRU5ErkJggg==');
+		height: 16px;
+		width: 16px;
+		margin-left: -16px;
+		cursor: pointer;
+	}
+}

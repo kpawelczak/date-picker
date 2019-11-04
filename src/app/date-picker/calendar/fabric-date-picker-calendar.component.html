@@ -1,0 +1,91 @@
+<div class="gui-date-picker-container">
+	<div [ngSwitch]="switchViewedList()">
+
+		<div *ngSwitchCase="'daysList'">
+			<div class="gui-date-picker-interface">
+
+				<h3 (click)="showMonthsList()">{{selectedMonthName}} {{selectedYear}}</h3>
+
+				<div>
+					<button (click)="prevCard()"><</button>
+					<button (click)="nextCard()">></button>
+				</div>
+			</div>
+
+			<table>
+				<tr>
+					<th *ngFor="let dayOfTheWeek of daysOfTheWeek">
+						<span>{{dayOfTheWeek}}</span>
+					</th>
+				</tr>
+
+				<tr *ngFor="let week of weeks">
+
+					<td *ngFor="let day of week"
+						[class.gui-date-picker-selected-month]="displayMonthDays(day.getMonth())"
+						[class.gui-date-picker-current-day]="isCurrentDay(day)"
+						[class.gui-date-picker-selected-day]="isDateSelected(day)"
+						class="gui-date-picker-day">
+				<span (click)="onSelect(day)">
+					{{day.getDate()}}
+				</span>
+					</td>
+
+				</tr>
+			</table>
+		</div>
+
+		<div *ngSwitchCase="'monthList'">
+			<div class="gui-date-picker-interface">
+
+				<h3 (click)="showYearsList()">{{selectedYear}}</h3>
+
+				<div>
+					<button (click)="prevCard()"><</button>
+					<button (click)="nextCard()">></button>
+				</div>
+			</div>
+
+			<table>
+				<tr *ngFor="let quarter of quarters">
+					<td *ngFor="let month of quarter"
+						[class.gui-date-picker-selected-month]="isSelectedMonth(month.nr)"
+						[class.gui-date-picker-current-month]="isCurrentMonth(month.nr)"
+						(click)="selectMonth(month.nr)"
+						class="gui-date-picker-month">
+				<span>
+					{{month.name}}
+				</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div *ngSwitchCase="'yearsList'">
+			<div class="gui-date-picker-interface">
+
+				<h3>{{getDisplayedYearRange()}}</h3>
+
+				<div>
+					<button (click)="prevCard()"><</button>
+					<button (click)="nextCard()">></button>
+				</div>
+			</div>
+
+			<table>
+				<tr *ngFor="let yearsChunk of years">
+					<td *ngFor="let year of yearsChunk"
+						[class.gui-date-picker-selected-year]="isYearSelected(year)"
+						[class.gui-date-picker-current-year]="isCurrentYear(year)"
+						(click)="selectYear(year)"
+						class="gui-date-picker-year">
+						<span>
+							{{year}}
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+</div>
